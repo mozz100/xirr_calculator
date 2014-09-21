@@ -1,0 +1,53 @@
+initial_pension:
+  account: :pension 
+  entrytype: 0
+  value: 999.95
+  entrydate: <%= Date.new(2010,1,1).to_s(:db) %>
+
+initial_isa:
+  account: :isa 
+  entrytype: 0
+  value: 99.95
+  entrydate: <%= Date.new(2010,1,1).to_s(:db) %>
+
+pension_save:
+  account: :pension
+  entrytype: 1
+  value: 0.10
+  entrydate: <%= Date.new(2010,1,2).to_s(:db) %>
+
+pension_withdraw:
+  account: :pension
+  entrytype: 1
+  value: -0.05
+  entrydate: <%= Date.new(2010,1,2).to_s(:db) %>
+
+pension_later:
+  account: :pension
+  entrytype: 0
+  value: 1100
+  entrydate: <%= Date.new(2010,6,1).to_s(:db) %>
+
+pension_even_later:
+  account: :pension
+  entrytype: 0
+  value: 1200
+  entrydate: <%= ( Date.new(2010,6,1) + 100.days).to_s(:db) %>
+
+xirr_start:
+  account: :xirr_test
+  entrytype: 0
+  value: 1000.00
+  entrydate: <%= Date.new(2013,1,1).to_s(:db) %>
+
+xirr_deposit:
+  account: :xirr_test
+  entrytype: 1
+  value: 500.00
+  entrydate: <%= (Date.new(2013,1,1) + 183.days).to_s(:db) %>
+
+xirr_end:
+  account: :xirr_test
+  entrytype: 0
+  value: 1550.00
+  entrydate: <%= (Date.new(2013,1,1) + 366.days).to_s(:db) %>

@@ -1,0 +1,22 @@
+{
+  "name": "XIRR Calculator",
+  "description": "A basic tool for tracking investments and savings.",
+  "keywords": [
+    "finance",
+    "xirr",
+    "pension"
+  ],
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "env": {
+    "LANG": "en_US.UTF-8",
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production",
+    "SECRET_KEY_BASE": "REDACTED"
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup"
+  },
+  "success_url": "/"
+}

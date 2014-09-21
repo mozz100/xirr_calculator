@@ -1,0 +1,56 @@
+<h1>
+  <%= @account.name %>
+</h1>
+
+<h2>
+  <%= @account.code %>
+</h2>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>
+
+<hr/>
+<% if @account.entries.count > 0 %>
+  Overall APR: <%= (100 * @account.overall_apr).round(3) %>%
+<% end %>
+
+<%= form_for @new_entry do |f| %>
+  <%= f.hidden_field :account_id %>
+  <table border="1">
+    <% @account.entries.reverse.each do |item| %>
+      <tr>
+        <td>
+          <%= item.entrydate %>
+        </td>
+        <td>
+          <%= item.description %>
+        </td>
+        <td class="money">
+          <%= number_to_currency(item.value, unit: "") if item.entrytype == "deposit" %>
+        </td>
+        <td class="money">
+          <%= number_to_currency(item.value, unit: "") if item.entrytype == "valuation" %>
+        </td>
+        <td>
+          <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+    <!-- interface for adding a new entry in final row -->
+    <tr>
+      <td>
+        <%= f.date_field :entrydate %>
+      </td>
+      <td>
+        <%= select_tag :description, options_for_select(["Deposit", "Withdrawal", "Valuation"], "Valuation") %>
+      </td>
+      <td colspan="2" class="money">
+        <%= f.number_field :value, :step => 0.01 %>
+      </td>
+      <td>
+        <%= f.submit "Save" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+

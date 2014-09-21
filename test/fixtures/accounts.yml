@@ -1,0 +1,11 @@
+pension:
+  code: sipp001
+  name: SIPP
+
+isa:
+  code: isa001
+  name: Individual Savings Account
+
+xirr_test:
+  code: xirr001
+  name: XIRR test

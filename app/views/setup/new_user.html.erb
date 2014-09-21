@@ -1,0 +1,14 @@
+<h1>Create user</h1>
+<%= form_for(@new_user, :as => :user, :url => :create_user) do |f| %>
+
+  <p><%= f.label :email %><br />
+    <%= f.text_field :email %></p>
+
+  <p><%= f.label :password %><br />
+    <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %></p>
+
+  <p><%= f.submit "Save" %></p>
+<% end %>
